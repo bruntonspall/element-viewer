@@ -32,6 +32,8 @@ object elementViewerBuild  extends Build {
         "com.weiglewilczek.slf4s" %% "slf4s" % "1.0.7",
         "cc.spray" %%  "spray-json" % "1.1.1",
         "commons-codec" %  "commons-codec" % "1.6",
+        "net.liftweb" %% "lift-json" % "2.4",
+        "net.liftweb" %% "lift-json-ext" % "2.4",
         "org.scalatest" %% "scalatest" % "1.6.1" % "test",
         "javax.servlet" % "servlet-api" % "2.3" % "provided",
         "org.mortbay.jetty" % "jetty" % "6.1.22" % "container")

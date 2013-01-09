@@ -2,7 +2,10 @@ package com.gu.contentapi.model
 
 import com.gu.contentapi.util.Annotations._
 import com.googlecode.objectify.annotation.Entity
-import cc.spray.json.DefaultJsonProtocol
+import cc.spray.json.{ JsValue, DefaultJsonProtocol }
+import net.liftweb.json._
+
+case class ApiContent(id: String, webTitle: String, fields: JObject, elements: JValue)
 
 @Entity
 case class User(
@@ -13,14 +16,4 @@ case class User(
   // Only for Objectify creation
   private def this() { this(null, null, null) }
 
-}
-
-case class Content(id: String, webTitle: String)
-case class Response(status: String, total: Long, results: List[Content])
-case class ResponseWrapper(response: Response)
-
-object ContentJsonProtocol extends DefaultJsonProtocol {
-  implicit val contentFormat = jsonFormat2(Content)
-  implicit val responseFormat = jsonFormat3(Response)
-  implicit val wrapperFormat = jsonFormat1(ResponseWrapper)
 }

@@ -1,15 +1,9 @@
-@(response:Response)
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Welcome</title>
-	</head>
-	<body>
+@(responses:List[ApiContent])
+@template(title="index") {
 		<h1>Results</h1>
         <ul>
-    @response.results.map { result =>
-            <li><a href="/article/@result.id.">@result.webTitle.</a></li>
-    }
+            @responses.map { content =>
+                    <li><a href="/article/@content.id">@content.webTitle</a></li>
+            }
         </ul>
-	</body>
-</html>
+}
