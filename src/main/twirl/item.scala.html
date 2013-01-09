@@ -13,21 +13,6 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script>
         data = @Html(jsonString);
-        $(function(){
-            for (elementId in data) {
-                $('.element').each(function(index, element){
-                    var el = $(element);
-                  if (el.data('media-id') === elementId) {
-                      s = '<ul>';
-                      for (i in data[elementId].assets) {
-                          s += '<li><img src="'+data[elementId].assets[i].file+'"></li>';
-                      }
-                      s += '</ul>';
-                      el.append(s);
-                  }
-                });
-            }
-
-        })
     </script>
+        <script src="/js/master.js"></script>
 }
