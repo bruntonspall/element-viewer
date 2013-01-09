@@ -22,6 +22,10 @@ object elementViewerBuild  extends Build {
 
   lazy val root = Project(id="elementViewer", base=file("."))
     .settings(
+      resolvers ++= Seq(
+        "objectivy repo" at "http://maven.objectify-appengine.googlecode.com/git/")
+    )
+    .settings(
       libraryDependencies ++= Seq(
         "com.googlecode.objectify" % "objectify" % "4.0a3",
         "org.scalatra" %% "scalatra" % "2.0.4",
