@@ -1,9 +1,9 @@
-@(responses:List[ApiContent])
+@(responses:List[ApiContentResultItem], paramString: String)
 @template(title="index") {
 		<h1>Results</h1>
         <ul>
             @responses.map { content =>
-                    <li><a href="/article/@content.id">@content.webTitle</a></li>
+                    <li><a href="/article/@{content.id}?@paramString">@content.webTitle</a></li>
             }
         </ul>
 }

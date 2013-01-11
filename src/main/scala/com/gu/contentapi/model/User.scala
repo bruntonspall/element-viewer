@@ -5,6 +5,7 @@ import com.googlecode.objectify.annotation.Entity
 import cc.spray.json.{ JsValue, DefaultJsonProtocol }
 import net.liftweb.json._
 
+case class ApiContentResultItem(id: String, webTitle: String)
 case class ApiContent(id: String, webTitle: String, fields: JObject, elements: JValue)
 
 @Entity

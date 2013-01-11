@@ -1,7 +1,7 @@
 @(content:ApiContent, jsonString: String)
 @stringField(fieldname: String, fields: net.liftweb.json.JValue) = @{
     implicit val formats = net.liftweb.json.DefaultFormats
-    (fields \ fieldname).extract[String]
+    (fields \ fieldname).extractOpt[String].getOrElse("")
 }
 @template(title=content.webTitle) {
 <h1>@Html(content.webTitle)</h1>
@@ -9,7 +9,11 @@
         @Html(stringField("body", content.fields))
         </div>
 
-
+<figure style="display: none" id="video-template" >
+    <img src="http://cdn.memegenerator.net/instances/400x/31532681.jpg"><br>
+    <video width=640 height=320 src="about:none" controls autobuffer>
+    </video>
+</figure>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script>
         data = @Html(jsonString);
